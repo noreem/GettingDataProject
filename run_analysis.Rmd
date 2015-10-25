@@ -83,3 +83,16 @@ dataset <- rbind(trainingSet, testSet)
 subject <- cbind(subject, labels)
 dataset <- cbind(subject, dataset)
 ```
+
+# Extract only the mean and standard deviation
+
+```{r}
+feature <- read.csv(file.path(datasetPath, "features.txt"), sep = "", header = FALSE)
+colnames(feature)<-c("FeatureNumber", "FeatureName")
+
+feature <- feature[grepl("mean\\(\\)|std\\(\\)", feature$FeatureName),]
+
+feature$FeatureCode <- paste0("V", feature$FeatureNumber)
+
+dataset <- dataset[feature$FeatureCode]
+```
