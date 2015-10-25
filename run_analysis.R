@@ -77,4 +77,4 @@ pivotData = melt(dataset, id = idLabels, measure.vars = dataLabels)
 # Tidy data
 
 tidyData   = dcast(pivotData, Subject + ActivityName ~ variable, mean)
-write.table(tidyData, file = "./tidyData.txt")
+write.table(tidyData, file = "./tidyData.txt", row.names = FALSE)
