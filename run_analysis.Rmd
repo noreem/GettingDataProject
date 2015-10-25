@@ -25,3 +25,30 @@ Appropriately labels the data set with descriptive variable names.
 From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 Good luck!
+
+# Getting the data
+
+```{r}
+setwd("C:/Work/DataScience/GettingDataProject")
+```
+
+Download the file to "./Data/Dataset.zip" if it doesn't exist
+```{r}
+downloadUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+dataDirPath <- "./Data"
+zipFilepath <- file.path(dataDirPath,"Dataset.zip")
+
+if(!file.exists(dataDirPath)) {
+  dir.create(dataDirPath)
+  if(!file.exists(zipFilepath)) {
+    download.file(downloadUrl, zipFilepath)
+  }
+}
+```
+
+Unzip the dataset to the "./Data" directory
+
+```{r}
+unzip(zipFilepath, exdir = dataDirPath)
+datasetPath = file.path(dataDirPath, "UCI HAR Dataset")
+```
