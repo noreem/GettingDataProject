@@ -47,7 +47,7 @@ testLabels <- read.csv(file.path(datasetPath, "test", "y_test.txt"), sep = "", h
 features <- read.csv(file.path(datasetPath, "features.txt"), sep = "", header = FALSE)[,2]
 activityLabels <- read.csv(file.path(datasetPath, "activity_labels.txt"), sep = "", header = FALSE)[,2]
 
-# Merge the data and and descriptive activity names
+# Merge the data and add descriptive activity names
 
 subject <- rbind(subjectTrain, subjectTest)
 colnames(subject)[1] <- "Subject"

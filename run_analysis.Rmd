@@ -48,10 +48,6 @@ library(reshape2)
 
 # Getting the data
 
-```{r}
-setwd("C:/Work/DataScience/GettingDataProject")
-```
-
 Download the file to "./Data/Dataset.zip" if it doesn't exist
 ```{r}
 downloadUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -87,7 +83,7 @@ features <- read.csv(file.path(datasetPath, "features.txt"), sep = "", header = 
 activityLabels <- read.csv(file.path(datasetPath, "activity_labels.txt"), sep = "", header = FALSE)[,2]
 ```
 
-# Merge the data and and descriptive activity names
+# Merge the data and add descriptive activity names
 
 ```{r}
 subject <- rbind(subjectTrain, subjectTest)
